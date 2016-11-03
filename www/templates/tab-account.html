@@ -1,0 +1,41 @@
+<ion-view view-title="我">
+	<ion-content>
+		<ion-refresher pulling-text="下拉刷新" on-refresh="slide.doRefresh()"></ion-refresher>
+
+		<ion-list>
+			<a class="item item-avatar item-icon-right" ng-click="goDetails()">
+				<img src="img/user.png" ng-src="{{ user.avatar==undefind?'':imgUrl+user.avatar}}" alt="">
+				<h2>
+					<span>
+						{{ uData==undefind?'未登录':uData.name}}
+					</span>
+				</h2>
+				<p>积分：<span>{{user.integral}}</span></p>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+
+		  	<ion-item class="item-divider item-gap"></ion-item>
+		  	<a class="item item-icon-right" ng-href="#/tab/account-fav">
+				<span>我的收藏</span>
+				
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
+			<ion-item>
+				当前版本
+				<span class="item-note">1.0.0</span>
+			</ion-item>
+			<ion-item>
+				作者
+				<span class="item-note">史如梦</span>
+			</ion-item>
+			<ion-item class="text-center">
+				<img src="img/ben.png"  width="200" alt=""><br>
+
+				@tel:18839121062
+			</ion-item>
+		</ion-list>
+
+	</ion-content>	
+
+
+</ion-view>

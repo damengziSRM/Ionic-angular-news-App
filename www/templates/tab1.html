@@ -1,0 +1,39 @@
+<ion-view view-title="头条">
+<ion-slide-box delegate-handle="slide1"  show-pager="false" on-slide-changed="slideChanged($index)">
+<ion-slide ng-repeat="slide in slides">
+<ion-content>
+
+<ion-refresher pulling-text="下拉刷新" on-refresh="slide.doRefresh()"></ion-refresher>
+<!-- <ion-slide-box  class="has-header" show-pager="false" on-slide-changed="slideChanged($index)">
+<ion-slide ng-repeat="slide in slides"> -->
+
+    <div class="list has-header">
+		<a ng-click="goDetails(item)" ng-repeat="item in slide.items" class="item item-thumbnail-left item-text-wrap">
+			<img ng-src="{{imgUrl+item.img}}" width="30" height="30" alt="">
+			<h3>标题：{{ item.title }}</h3>
+			<p>{{ item.body | substring:item.body}}</p>
+		</a>
+    </div>
+
+<ion-infinite-scroll ng-if="!slide.isload" on-infinite='slide.loadMore()' distance="1%">
+</ion-infinite-scroll>
+  
+
+<!-- </ion-slide>
+
+</ion-slide-box> -->
+
+</ion-content>
+</ion-slide>
+
+</ion-slide-box>
+<ion-tabs id="{{currentTabId}}" class="tabs-striped tabs-top" delegate-handle="tab1">
+<ion-tab ng-repeat="item in tabs" on-select="selectedTab($index)" title="{{item.name}}">
+</ion-tab>
+</ion-tabs>
+
+
+
+
+
+</ion-view>

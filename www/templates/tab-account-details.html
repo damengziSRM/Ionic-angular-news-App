@@ -1,0 +1,24 @@
+<ion-view view-title="个人中心">
+	<ion-content bindonce="user">
+		<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+		<ion-list>
+			<div class="text-center">
+				<a href="" class="item">
+					<img src="img/user.png" alt="">
+					<h2><span>{{user.name}}</span></h2>
+				</a>
+			</div>
+			
+			<ion-item>
+				邮箱
+				<span class="item-note">{{user.email}}</span>
+			</ion-item>
+			<ion-item>
+				<button ng-click="logout()" class="button button-full button-positive">注销</button>
+			</ion-item>
+		</ion-list>
+		
+	</ion-content>
+
+
+</ion-view>

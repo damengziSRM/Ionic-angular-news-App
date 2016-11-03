@@ -1,0 +1,19 @@
+<ion-view view-title="我的收藏">
+	<ion-content>
+		<ion-refresher  pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+		<ion-list show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+		  <ion-item ng-repeat="item in items" class=" item item-text-wrap margin" ng-click="goDetails(item)">
+			<ion-option-button class="button-assertive" ng-click="removeItem(item)">
+                    删除
+                </ion-option-button>
+                <p class="item-note ">{{::item.pivot.created_at.time}}</p>
+                <h3>{{::item.title}}</h3>
+
+		    
+
+		  </ion-item>
+		  
+		</ion-list>
+		<!-- <ion-infinite-scroll ng-if="!vm.isload" on-infinite="vm.loadMore()" distance="1%"></ion-infinite-scroll> -->
+	</ion-content>
+</ion-view>
